@@ -55,7 +55,7 @@
     self.index = 0;
 	// Do any additional setup after loading the view, typically from a nib.
     self.myQuotes = @[
-                      @"1Live and let live",
+                      @"1hi",
                       @"2Don't cry over spilt milk",
                       @"3Always look on the bright side of life",
                       @"4Nobody's perfect",
