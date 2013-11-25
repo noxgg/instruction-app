@@ -24,6 +24,16 @@
 		901132891840315100E5D0F1 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901132851840315100E5D0F1 /* Slt.framework */; };
 		9011328B184031BE00E5D0F1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9011328A184031BE00E5D0F1 /* AudioToolbox.framework */; };
 		9011328D184031C400E5D0F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9011328C184031C400E5D0F1 /* AVFoundation.framework */; };
+		A52A68C3184292580088400B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52A68C1184292580088400B /* SecondViewController.m */; };
+		A52A68C4184292580088400B /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A52A68C2184292580088400B /* SecondViewController.xib */; };
+		A5D3ABA618433305006D6939 /* 67.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABA518433305006D6939 /* 67.png */; };
+		A5D3ABA818433310006D6939 /* 68.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABA718433310006D6939 /* 68.png */; };
+		A5D3ABAA1843331F006D6939 /* 69.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABA91843331F006D6939 /* 69.png */; };
+		A5D3ABAC18433330006D6939 /* 70.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABAB18433330006D6939 /* 70.png */; };
+		A5D3ABAE1843333C006D6939 /* 71.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABAD1843333C006D6939 /* 71.png */; };
+		A5D3ABB018433348006D6939 /* 72.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABAF18433348006D6939 /* 72.png */; };
+		A5D3ABB218433362006D6939 /* 73.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABB118433362006D6939 /* 73.png */; };
+		A5D3ABB41843337A006D6939 /* 74.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3ABB31843337A006D6939 /* 74.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +59,18 @@
 		901132851840315100E5D0F1 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		9011328A184031BE00E5D0F1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9011328C184031C400E5D0F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A52A68C0184292580088400B /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		A52A68C1184292580088400B /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		A52A68C2184292580088400B /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		A5D3ABA41842F4BA006D6939 /* ParentControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentControllerDelegate.h; sourceTree = "<group>"; };
+		A5D3ABA518433305006D6939 /* 67.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 67.png; sourceTree = "<group>"; };
+		A5D3ABA718433310006D6939 /* 68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 68.png; sourceTree = "<group>"; };
+		A5D3ABA91843331F006D6939 /* 69.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 69.png; sourceTree = "<group>"; };
+		A5D3ABAB18433330006D6939 /* 70.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 70.png; sourceTree = "<group>"; };
+		A5D3ABAD1843333C006D6939 /* 71.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 71.png; sourceTree = "<group>"; };
+		A5D3ABAF18433348006D6939 /* 72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72.png; sourceTree = "<group>"; };
+		A5D3ABB118433362006D6939 /* 73.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 73.png; sourceTree = "<group>"; };
+		A5D3ABB31843337A006D6939 /* 74.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 74.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +124,10 @@
 		901132641840295900E5D0F1 /* InstructionApp */ = {
 			isa = PBXGroup;
 			children = (
+				A5D3ABA41842F4BA006D6939 /* ParentControllerDelegate.h */,
+				A52A68C0184292580088400B /* SecondViewController.h */,
+				A52A68C1184292580088400B /* SecondViewController.m */,
+				A52A68C2184292580088400B /* SecondViewController.xib */,
 				9011326D1840295900E5D0F1 /* spahAppDelegate.h */,
 				9011326E1840295900E5D0F1 /* spahAppDelegate.m */,
 				901132761840295900E5D0F1 /* MainStoryboard.storyboard */,
@@ -116,6 +142,14 @@
 		901132651840295900E5D0F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5D3ABA518433305006D6939 /* 67.png */,
+				A5D3ABA718433310006D6939 /* 68.png */,
+				A5D3ABA91843331F006D6939 /* 69.png */,
+				A5D3ABAB18433330006D6939 /* 70.png */,
+				A5D3ABAD1843333C006D6939 /* 71.png */,
+				A5D3ABAF18433348006D6939 /* 72.png */,
+				A5D3ABB118433362006D6939 /* 73.png */,
+				A5D3ABB31843337A006D6939 /* 74.png */,
 				901132661840295900E5D0F1 /* InstructionApp-Info.plist */,
 				901132671840295900E5D0F1 /* InfoPlist.strings */,
 				9011326A1840295900E5D0F1 /* main.m */,
@@ -197,6 +231,15 @@
 				901132781840295900E5D0F1 /* MainStoryboard.storyboard in Resources */,
 				901132861840315100E5D0F1 /* AcousticModelEnglish.bundle in Resources */,
 				901132871840315100E5D0F1 /* AcousticModelSpanish.bundle in Resources */,
+				A52A68C4184292580088400B /* SecondViewController.xib in Resources */,
+				A5D3ABA618433305006D6939 /* 67.png in Resources */,
+				A5D3ABA818433310006D6939 /* 68.png in Resources */,
+				A5D3ABAA1843331F006D6939 /* 69.png in Resources */,
+				A5D3ABAC18433330006D6939 /* 70.png in Resources */,
+				A5D3ABAE1843333C006D6939 /* 71.png in Resources */,
+				A5D3ABB018433348006D6939 /* 72.png in Resources */,
+				A5D3ABB218433362006D6939 /* 73.png in Resources */,
+				A5D3ABB41843337A006D6939 /* 74.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +253,7 @@
 				9011326B1840295900E5D0F1 /* main.m in Sources */,
 				9011326F1840295900E5D0F1 /* spahAppDelegate.m in Sources */,
 				9011327B1840295900E5D0F1 /* spahViewController.m in Sources */,
+				A52A68C3184292580088400B /* SecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +384,7 @@
 				901132801840295900E5D0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

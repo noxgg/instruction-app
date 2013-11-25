@@ -18,6 +18,7 @@
 @synthesize pocketsphinxController;
 @synthesize openEarsEventsObserver;
 
+
 - (OpenEarsEventsObserver *)openEarsEventsObserver {
 	if (openEarsEventsObserver == nil) {
 		openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
@@ -66,7 +67,7 @@
                       ];
     
     
-    NSArray *words = [NSArray arrayWithObjects:@"PREVIOUS", @"NEXT", nil];
+    NSArray *words = [NSArray arrayWithObjects:@"PREVIOUS", @"NEXT", @"SHOW PHOTO", @"SHOW TEXT", nil];
     NSString *name = @"NameIWantForMyLanguageModelFiles";
     LanguageModelGenerator *lmGenerator = [[LanguageModelGenerator alloc] init];
     NSError *err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]];
@@ -91,13 +92,43 @@
     [self.pocketsphinxController startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
     
     [self.openEarsEventsObserver setDelegate:self];
-}
+    
+   
+     _GestureRecognizers = [[NSMutableArray alloc] init];
+    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(SwipeUp:)];
+    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+      [_GestureRecognizers addObject:swipeRecognizer];
+    [self.view addGestureRecognizer:swipeRecognizer];
 
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(IBAction)SwipeUp:(UIGestureRecognizer *) sender{
+    // Open new view
+    NSLog(@"swiped");
+  
+    
+   // if (sender.state == UIGestureRecognizerStateEnded)
+    //{
+         UIStoryboard *storyboard = self.storyboard;
+        
+         secView = [storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
+        int array_tot = [self.myQuotes count];
+        int ind = (self.index % array_tot);
+        secView.imageIndex = ind;
+        [self.view addSubview:secView.view];
+        [self presentViewController:secView animated:YES completion:nil];
+    //}    
+}
+
+   
+
 
 -(IBAction)goBack:(id)sender {
     // 1 - Get number of rows in array
@@ -130,15 +161,18 @@
 
 }
 
-
-
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
     if ([hypothesis isEqualToString:@"NEXT"]) {
         [self goForward:nil];
     } else if ([hypothesis isEqualToString:@"PREVIOUS"]) {
         [self goBack:nil];
-    }
+    }else if ([hypothesis isEqualToString:@"SHOW PHOTO"]) {
+        [self SwipeUp:nil];
+    }/*else if ([hypothesis isEqualToString:@"SHOW TEXT"]) {
+        [self ViewBack:nil];
+    }*/
+
 }
 
 - (void) pocketsphinxDidStartCalibration {
@@ -183,5 +217,86 @@
 - (void) testRecognitionCompleted {
 	NSLog(@"A test file that was submitted for recognition is now complete.");
 }
+
+/*
+
+- (void)pushChildViewController:(UIViewController *)newChildController
+{
+    // remove any other children that we've popped off, but are still lingering about
+    
+    for (NSInteger index = [self.childViewControllers count] - 1; index > self.currentChildIndex; index--)
+    {
+        UIViewController *childController = self.childViewControllers[index];
+        [childController willMoveToParentViewController:nil];
+        [childController.view removeFromSuperview];
+        [childController removeFromParentViewController];
+    }
+    
+    // get reference to the current child controller
+    
+    UIViewController *currentChildController = self.childViewControllers[self.currentChildIndex];
+    
+    // set new child to be off to the right
+    
+    CGRect frame = self.containerView.bounds;
+    frame.origin.x += frame.size.width;
+    newChildController.view.frame = frame;
+    
+    // add the new child
+    
+    [self addChildViewController:newChildController];
+    [self.containerView addSubview:newChildController.view];
+    [newChildController didMoveToParentViewController:self];
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         CGRect frame = self.containerView.bounds;
+                         newChildController.view.frame = frame;
+                         frame.origin.x -= frame.size.width;
+                         currentChildController.view.frame = frame;
+                     }];
+    
+    self.currentChildIndex++;
+}
+
+- (void)popChildViewController
+{
+    if (self.currentChildIndex == 0)
+        return;
+    
+    UIViewController *currentChildController = self.childViewControllers[self.currentChildIndex];
+    self.currentChildIndex--;
+    UIViewController *previousChildController = self.childViewControllers[self.currentChildIndex];
+    
+    CGRect onScreenFrame = self.containerView.bounds;
+    
+    CGRect offToTheRightFrame = self.containerView.bounds;
+    offToTheRightFrame.origin.x += offToTheRightFrame.size.width;
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         currentChildController.view.frame = offToTheRightFrame;
+                         previousChildController.view.frame = onScreenFrame;
+                     }];
+}
+
+
+- (void)addShadow:(UIView *)view
+{
+    view.layer.shadowColor = [[UIColor blackColor] CGColor];
+    view.layer.shadowOpacity = 0.5;
+    view.layer.shadowRadius = 10.0;
+    [view.layer setShouldRasterize:YES];
+    [view.superview bringSubviewToFront:view];
+}
+
+- (void)removeShadow:(UIView *)view
+{
+    view.layer.shadowRadius = 0.0;
+    view.layer.shadowOpacity = 0.0;
+    view.layer.shadowColor = [[UIColor clearColor] CGColor];
+    [view.layer setShouldRasterize:NO];
+}
+*/
 
 @end

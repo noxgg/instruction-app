@@ -13,6 +13,9 @@
 #import <OpenEars/AcousticModel.h>
 #import <OpenEars/PocketsphinxController.h>
 #import <OpenEars/OpenEarsEventsObserver.h>
+#import "SecondViewController.h"
+//#import "ParentControllerDelegate.h"
+
 
 FliteController *fliteController;
 Slt *slt;
@@ -20,7 +23,9 @@ PocketsphinxController *pocketsphinxController;
 
 OpenEarsEventsObserver *openEarsEventsObserver;
 
-@interface spahViewController : UIViewController <OpenEarsEventsObserverDelegate>
+@interface spahViewController : UIViewController <OpenEarsEventsObserverDelegate> {
+    SecondViewController *secView;
+}
     @property (strong, nonatomic) FliteController *fliteController;
     @property (strong, nonatomic) Slt *slt;
     @property (nonatomic, strong) NSArray *myQuotes;
@@ -30,6 +35,13 @@ OpenEarsEventsObserver *openEarsEventsObserver;
     @property (strong, nonatomic) PocketsphinxController *pocketsphinxController;
     @property (strong, nonatomic) OpenEarsEventsObserver *openEarsEventsObserver;
 
+    @property (nonatomic, strong) NSMutableArray *GestureRecognizers;
+    @property (weak, nonatomic) IBOutlet UIView *containerView;
+    @property (nonatomic) NSInteger currentChildIndex;
+
+    - (IBAction)SwipeUp:(UIGestureRecognizer *) sender;
+   // - (IBAction)SwipeUp:(id) sender;
     - (IBAction)goBack:(id)sender;
     - (IBAction)goForward:(id)sender;
+
 @end
