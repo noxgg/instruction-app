@@ -18,6 +18,7 @@
 @synthesize pocketsphinxController;
 @synthesize openEarsEventsObserver;
 
+//Lazy loaders for Open Ears objects
 - (OpenEarsEventsObserver *)openEarsEventsObserver {
 	if (openEarsEventsObserver == nil) {
 		openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
@@ -52,9 +53,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.index = 0;
+    self.instructionIndex = 0;
 	// Do any additional setup after loading the view, typically from a nib.
-    self.myQuotes = @[
+    self.instructions = @[
                       @"1hi",
                       @"2Don't cry over spilt milk",
                       @"3Always look on the bright side of life",
@@ -64,9 +65,19 @@
                       @"7The early bird catches the worm",
                       @"8As slow as a wet week"
                       ];
+    self.images= [[NSArray alloc] initWithObjects:
+                      @"67.png",
+                      @"68.png",
+                      @"69.png",
+                      @"70.png",
+                      @"71.png",
+                      @"72.png",
+                      @"73.png",
+                      @"74.png",
+                      nil];
     
-    
-    NSArray *words = [NSArray arrayWithObjects:@"PREVIOUS", @"NEXT", nil];
+    self.instructionCount = [self.instructions count];
+    NSArray *words = [NSArray arrayWithObjects:@"PREVIOUS", @"NEXT", @"REPEAT", @"SHOW PHOTO", @"SHOW TEXT", nil];
     NSString *name = @"NameIWantForMyLanguageModelFiles";
     LanguageModelGenerator *lmGenerator = [[LanguageModelGenerator alloc] init];
     NSError *err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]];
@@ -91,6 +102,10 @@
     [self.pocketsphinxController startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
     
     [self.openEarsEventsObserver setDelegate:self];
+    
+    self.currentImage.hidden = true;
+    self.currentInstruction.hidden = false;
+    [self switchInstruction];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,45 +114,62 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Methods for handling commands issued by the user.
 -(IBAction)goBack:(id)sender {
-    // 1 - Get number of rows in array
-    int array_tot = [self.myQuotes count];
-    // 2 - Get random index
-    self.index--;
-    int ind = (self.index % array_tot);
-    // 3 - Get the quote string for the index
-    NSString *my_quote = self.myQuotes[ind];
-    // 4 - Display the quote in the text view
-    self.quoteText.text = [NSString stringWithFormat:@"Quote:\n\n%@",  my_quote];
-    [self.fliteController say:my_quote withVoice:self.slt];
+    self.instructionIndex--;
+    [self switchInstruction];
 }
 
 -(IBAction)goForward:(id)sender {
-    // 1 - Get number of rows in array
-    int array_tot = [self.myQuotes count];
-    // 2 - Get random index
-    if (self.index == 0) {
-        self.index = array_tot;
-    }
-    self.index++;
-    
-    int ind = (self.index % array_tot);
-    // 3 - Get the quote string for the index
-    NSString *my_quote = self.myQuotes[ind];
-    // 4 - Display the quote in the text view
-    self.quoteText.text = [NSString stringWithFormat:@"Quote:\n\n%@",  my_quote];
-    [self.fliteController say:my_quote withVoice:self.slt];
+    ++self.instructionIndex;
+    [self switchInstruction];
 
 }
 
+- (void)switchInstruction {
+    if (self.instructionIndex < 0) {
+        self.instructionIndex += self.instructionCount;
+    } else if (self.instructionIndex >= self.instructionCount) {
+        self.instructionIndex = self.instructionIndex % self.instructionCount;
+    }
+    [self.currentImage setImage:[UIImage imageNamed:[self.images objectAtIndex:self.instructionIndex]]];
+    self.currentInstruction.text = self.instructions[self.instructionIndex];
+    [self.fliteController say:self.currentInstruction.text withVoice:self.slt];
+    
+}
+
+-(IBAction)swipeUp:(id) sender{
+    NSLog(@"swipe up detected");
+    self.currentInstruction.hidden = true;
+    self.currentImage.hidden = false;
+}
+
+-(IBAction)swipeDown:(id) sender{
+    NSLog(@"swipe down updetected");
+    self.currentInstruction.hidden = false;
+    self.currentImage.hidden = true;
+}
+
+-(IBAction)restart:(id)sender {
+    [self switchInstruction];
+}
 
 
+//Methods for processing voice input.
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
-    if ([hypothesis isEqualToString:@"NEXT"]) {
+    if ([recognitionScore floatValue] < 5000) {
+        NSLog(@"Score is too low. Ignoring command");
+    } else if ([hypothesis isEqualToString:@"NEXT"]) {
         [self goForward:nil];
     } else if ([hypothesis isEqualToString:@"PREVIOUS"]) {
         [self goBack:nil];
+    } else if ([hypothesis isEqualToString:@"REPEAT"]) {
+        [self restart:nil];
+    } else if ([hypothesis isEqualToString:@"SHOW PHOTO"]) {
+        [self swipeUp:nil];
+    } else if ([hypothesis isEqualToString:@"SHOW TEXT"]) {
+      [self swipeDown:nil];
     }
 }
 

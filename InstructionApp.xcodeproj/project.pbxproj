@@ -18,12 +18,12 @@
 		901132751840295900E5D0F1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 901132741840295900E5D0F1 /* Default-568h@2x.png */; };
 		901132781840295900E5D0F1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901132761840295900E5D0F1 /* MainStoryboard.storyboard */; };
 		9011327B1840295900E5D0F1 /* spahViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9011327A1840295900E5D0F1 /* spahViewController.m */; };
-		901132861840315100E5D0F1 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 901132821840315100E5D0F1 /* AcousticModelEnglish.bundle */; };
-		901132871840315100E5D0F1 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 901132831840315100E5D0F1 /* AcousticModelSpanish.bundle */; };
-		901132881840315100E5D0F1 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901132841840315100E5D0F1 /* OpenEars.framework */; };
-		901132891840315100E5D0F1 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901132851840315100E5D0F1 /* Slt.framework */; };
 		9011328B184031BE00E5D0F1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9011328A184031BE00E5D0F1 /* AudioToolbox.framework */; };
 		9011328D184031C400E5D0F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9011328C184031C400E5D0F1 /* AVFoundation.framework */; };
+		902B49EE18445E9E001F7D6A /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 902B49EA18445E9E001F7D6A /* AcousticModelEnglish.bundle */; };
+		902B49EF18445E9E001F7D6A /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 902B49EB18445E9E001F7D6A /* AcousticModelSpanish.bundle */; };
+		902B49F018445E9E001F7D6A /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B49EC18445E9E001F7D6A /* OpenEars.framework */; };
+		902B49F118445E9E001F7D6A /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B49ED18445E9E001F7D6A /* Slt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +43,12 @@
 		901132771840295900E5D0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		901132791840295900E5D0F1 /* spahViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = spahViewController.h; sourceTree = "<group>"; };
 		9011327A1840295900E5D0F1 /* spahViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spahViewController.m; sourceTree = "<group>"; };
-		901132821840315100E5D0F1 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
-		901132831840315100E5D0F1 /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
-		901132841840315100E5D0F1 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
-		901132851840315100E5D0F1 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		9011328A184031BE00E5D0F1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9011328C184031C400E5D0F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		902B49EA18445E9E001F7D6A /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
+		902B49EB18445E9E001F7D6A /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
+		902B49EC18445E9E001F7D6A /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		902B49ED18445E9E001F7D6A /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 				9011325F1840295900E5D0F1 /* UIKit.framework in Frameworks */,
 				901132611840295900E5D0F1 /* Foundation.framework in Frameworks */,
 				901132631840295900E5D0F1 /* CoreGraphics.framework in Frameworks */,
-				901132881840315100E5D0F1 /* OpenEars.framework in Frameworks */,
-				901132891840315100E5D0F1 /* Slt.framework in Frameworks */,
+				902B49F018445E9E001F7D6A /* OpenEars.framework in Frameworks */,
+				902B49F118445E9E001F7D6A /* Slt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 		9011325D1840295900E5D0F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				901132811840315100E5D0F1 /* Framework */,
+				902B49E918445E9E001F7D6A /* Framework */,
 				9011325E1840295900E5D0F1 /* UIKit.framework */,
 				901132601840295900E5D0F1 /* Foundation.framework */,
 				901132621840295900E5D0F1 /* CoreGraphics.framework */,
@@ -127,13 +127,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		901132811840315100E5D0F1 /* Framework */ = {
+		902B49E918445E9E001F7D6A /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				901132821840315100E5D0F1 /* AcousticModelEnglish.bundle */,
-				901132831840315100E5D0F1 /* AcousticModelSpanish.bundle */,
-				901132841840315100E5D0F1 /* OpenEars.framework */,
-				901132851840315100E5D0F1 /* Slt.framework */,
+				902B49EA18445E9E001F7D6A /* AcousticModelEnglish.bundle */,
+				902B49EB18445E9E001F7D6A /* AcousticModelSpanish.bundle */,
+				902B49EC18445E9E001F7D6A /* OpenEars.framework */,
+				902B49ED18445E9E001F7D6A /* Slt.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -195,8 +195,8 @@
 				901132731840295900E5D0F1 /* Default@2x.png in Resources */,
 				901132751840295900E5D0F1 /* Default-568h@2x.png in Resources */,
 				901132781840295900E5D0F1 /* MainStoryboard.storyboard in Resources */,
-				901132861840315100E5D0F1 /* AcousticModelEnglish.bundle in Resources */,
-				901132871840315100E5D0F1 /* AcousticModelSpanish.bundle in Resources */,
+				902B49EE18445E9E001F7D6A /* AcousticModelEnglish.bundle in Resources */,
+				902B49EF18445E9E001F7D6A /* AcousticModelSpanish.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +340,7 @@
 				901132801840295900E5D0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
