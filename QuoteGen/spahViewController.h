@@ -30,7 +30,7 @@ OpenEarsEventsObserver *openEarsEventsObserver;
     @property (nonatomic) NSInteger instructionCount;
     @property (strong, nonatomic) PocketsphinxController *pocketsphinxController;
     @property (strong, nonatomic) OpenEarsEventsObserver *openEarsEventsObserver;
-
+    @property (nonatomic) Boolean isVoiceEnabled;
     - (IBAction)goBack:(id)sender;
     - (IBAction)goForward:(id)sender;
     - (IBAction)swipeUp:(id) sender;

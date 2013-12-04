@@ -24,6 +24,17 @@
 		902B49EF18445E9E001F7D6A /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 902B49EB18445E9E001F7D6A /* AcousticModelSpanish.bundle */; };
 		902B49F018445E9E001F7D6A /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B49EC18445E9E001F7D6A /* OpenEars.framework */; };
 		902B49F118445E9E001F7D6A /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B49ED18445E9E001F7D6A /* Slt.framework */; };
+		9044CAC0184BEF390011F5E8 /* menuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9044CABF184BEF390011F5E8 /* menuController.m */; };
+		9044CAC6184BFFF40011F5E8 /* InstructionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9044CAC5184BFFF40011F5E8 /* InstructionSet.m */; };
+		9044CAC8184D7C250011F5E8 /* doge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9044CAC7184D7C250011F5E8 /* doge.jpg */; };
+		90BF52D9184EC68600EE721A /* ornaments1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D1184EC68600EE721A /* ornaments1.jpg */; };
+		90BF52DA184EC68600EE721A /* ornaments2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D2184EC68600EE721A /* ornaments2.jpg */; };
+		90BF52DB184EC68600EE721A /* ornaments3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D3184EC68600EE721A /* ornaments3.jpg */; };
+		90BF52DC184EC68600EE721A /* ornaments4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D4184EC68600EE721A /* ornaments4.jpg */; };
+		90BF52DD184EC68600EE721A /* ornaments5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D5184EC68600EE721A /* ornaments5.jpg */; };
+		90BF52DE184EC68600EE721A /* ornaments6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D6184EC68600EE721A /* ornaments6.jpg */; };
+		90BF52DF184EC68600EE721A /* ornaments7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D7184EC68600EE721A /* ornaments7.jpg */; };
+		90BF52E0184EC68600EE721A /* ornaments8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BF52D8184EC68600EE721A /* ornaments8.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +60,19 @@
 		902B49EB18445E9E001F7D6A /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
 		902B49EC18445E9E001F7D6A /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		902B49ED18445E9E001F7D6A /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
+		9044CABE184BEF390011F5E8 /* menuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuController.h; sourceTree = "<group>"; };
+		9044CABF184BEF390011F5E8 /* menuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuController.m; sourceTree = "<group>"; };
+		9044CAC4184BFFF40011F5E8 /* InstructionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionSet.h; sourceTree = "<group>"; };
+		9044CAC5184BFFF40011F5E8 /* InstructionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionSet.m; sourceTree = "<group>"; };
+		9044CAC7184D7C250011F5E8 /* doge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = doge.jpg; sourceTree = "<group>"; };
+		90BF52D1184EC68600EE721A /* ornaments1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments1.jpg; sourceTree = "<group>"; };
+		90BF52D2184EC68600EE721A /* ornaments2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments2.jpg; sourceTree = "<group>"; };
+		90BF52D3184EC68600EE721A /* ornaments3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments3.jpg; sourceTree = "<group>"; };
+		90BF52D4184EC68600EE721A /* ornaments4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments4.jpg; sourceTree = "<group>"; };
+		90BF52D5184EC68600EE721A /* ornaments5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments5.jpg; sourceTree = "<group>"; };
+		90BF52D6184EC68600EE721A /* ornaments6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments6.jpg; sourceTree = "<group>"; };
+		90BF52D7184EC68600EE721A /* ornaments7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments7.jpg; sourceTree = "<group>"; };
+		90BF52D8184EC68600EE721A /* ornaments8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ornaments8.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +132,10 @@
 				901132791840295900E5D0F1 /* spahViewController.h */,
 				9011327A1840295900E5D0F1 /* spahViewController.m */,
 				901132651840295900E5D0F1 /* Supporting Files */,
+				9044CABE184BEF390011F5E8 /* menuController.h */,
+				9044CABF184BEF390011F5E8 /* menuController.m */,
+				9044CAC4184BFFF40011F5E8 /* InstructionSet.h */,
+				9044CAC5184BFFF40011F5E8 /* InstructionSet.m */,
 			);
 			name = InstructionApp;
 			path = QuoteGen;
@@ -116,6 +144,15 @@
 		901132651840295900E5D0F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				90BF52D1184EC68600EE721A /* ornaments1.jpg */,
+				90BF52D2184EC68600EE721A /* ornaments2.jpg */,
+				90BF52D3184EC68600EE721A /* ornaments3.jpg */,
+				90BF52D4184EC68600EE721A /* ornaments4.jpg */,
+				90BF52D5184EC68600EE721A /* ornaments5.jpg */,
+				90BF52D6184EC68600EE721A /* ornaments6.jpg */,
+				90BF52D7184EC68600EE721A /* ornaments7.jpg */,
+				90BF52D8184EC68600EE721A /* ornaments8.jpg */,
+				9044CAC7184D7C250011F5E8 /* doge.jpg */,
 				901132661840295900E5D0F1 /* InstructionApp-Info.plist */,
 				901132671840295900E5D0F1 /* InfoPlist.strings */,
 				9011326A1840295900E5D0F1 /* main.m */,
@@ -197,6 +234,15 @@
 				901132781840295900E5D0F1 /* MainStoryboard.storyboard in Resources */,
 				902B49EE18445E9E001F7D6A /* AcousticModelEnglish.bundle in Resources */,
 				902B49EF18445E9E001F7D6A /* AcousticModelSpanish.bundle in Resources */,
+				9044CAC8184D7C250011F5E8 /* doge.jpg in Resources */,
+				90BF52D9184EC68600EE721A /* ornaments1.jpg in Resources */,
+				90BF52DA184EC68600EE721A /* ornaments2.jpg in Resources */,
+				90BF52DB184EC68600EE721A /* ornaments3.jpg in Resources */,
+				90BF52DC184EC68600EE721A /* ornaments4.jpg in Resources */,
+				90BF52DD184EC68600EE721A /* ornaments5.jpg in Resources */,
+				90BF52DE184EC68600EE721A /* ornaments6.jpg in Resources */,
+				90BF52DF184EC68600EE721A /* ornaments7.jpg in Resources */,
+				90BF52E0184EC68600EE721A /* ornaments8.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +256,8 @@
 				9011326B1840295900E5D0F1 /* main.m in Sources */,
 				9011326F1840295900E5D0F1 /* spahAppDelegate.m in Sources */,
 				9011327B1840295900E5D0F1 /* spahViewController.m in Sources */,
+				9044CAC0184BEF390011F5E8 /* menuController.m in Sources */,
+				9044CAC6184BFFF40011F5E8 /* InstructionSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

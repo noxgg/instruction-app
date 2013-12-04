@@ -53,31 +53,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.currentInstruction addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:NULL];
+    [super viewDidLoad];
     self.instructionIndex = 0;
+    self.isVoiceEnabled = false;
 	// Do any additional setup after loading the view, typically from a nib.
-    self.instructions = @[
-                      @"1hi",
-                      @"2Don't cry over spilt milk",
-                      @"3Always look on the bright side of life",
-                      @"4Nobody's perfect",
-                      @"5Can't see the woods for the trees",
-                      @"6Better to have loved and lost then not loved at all",
-                      @"7The early bird catches the worm",
-                      @"8As slow as a wet week"
-                      ];
-    self.images= [[NSArray alloc] initWithObjects:
-                      @"67.png",
-                      @"68.png",
-                      @"69.png",
-                      @"70.png",
-                      @"71.png",
-                      @"72.png",
-                      @"73.png",
-                      @"74.png",
-                      nil];
+
     
     self.instructionCount = [self.instructions count];
-    NSArray *words = [NSArray arrayWithObjects:@"PREVIOUS", @"NEXT", @"REPEAT", @"SHOW PHOTO", @"SHOW TEXT", nil];
+    NSArray *words = [NSArray arrayWithObjects:@"PREVIOUS", @"NEXT", @"REPEAT", @"SHOW PHOTO", @"SHOW TEXT", @"REED INSTRUCTION", @"STOP", @"MENU", nil];
     NSString *name = @"NameIWantForMyLanguageModelFiles";
     LanguageModelGenerator *lmGenerator = [[LanguageModelGenerator alloc] init];
     NSError *err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]];
@@ -108,6 +93,13 @@
     [self switchInstruction];
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    UITextView *tv = object;
+    CGFloat topCorrect = ([tv bounds].size.height - [tv contentSize].height * [tv zoomScale])/2.0;
+    topCorrect = ( topCorrect < 0.0 ? 0.0 : topCorrect );
+    tv.contentOffset = (CGPoint){.x = 0, .y = -topCorrect};
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -117,11 +109,26 @@
 //Methods for handling commands issued by the user.
 -(IBAction)goBack:(id)sender {
     self.instructionIndex--;
-    [self switchInstruction];
+    if (self.instructionIndex < 0) {
+        [self returnToMenu];
+    } else {
+        [self switchInstruction];
+    }
+}
+
+-(void)returnToMenu {
+    [self.currentInstruction removeObserver:self forKeyPath:@"contentSize"];
+    [self.pocketsphinxController stopListening];
+    [self.pocketsphinxController stopVoiceRecognitionThread];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)goForward:(id)sender {
     ++self.instructionIndex;
+    if (self.instructionIndex >= self.instructionCount) {
+        [self returnToMenu];
+    }
     [self switchInstruction];
 
 }
@@ -132,9 +139,15 @@
     } else if (self.instructionIndex >= self.instructionCount) {
         self.instructionIndex = self.instructionIndex % self.instructionCount;
     }
-    [self.currentImage setImage:[UIImage imageNamed:[self.images objectAtIndex:self.instructionIndex]]];
-    self.currentInstruction.text = self.instructions[self.instructionIndex];
-    [self.fliteController say:self.currentInstruction.text withVoice:self.slt];
+    UIImage *img = [UIImage imageNamed:[self.images objectAtIndex:self.instructionIndex]];
+    [self.currentImage setImage:img];
+    self.currentImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.currentInstruction.text = [NSString stringWithFormat:@"%@%d%@%ld%@%@", @"Step ", self.instructionIndex + 1, @" of ", (long)self.instructionCount, @") ", self.instructions[self.instructionIndex]];
+    if (self.isVoiceEnabled) {
+        self.fliteController = nil;
+        self.fliteController.userCanInterruptSpeech = true;
+        [self.fliteController say:self.instructions[self.instructionIndex] withVoice:self.slt];
+    }
     
 }
 
@@ -158,7 +171,7 @@
 //Methods for processing voice input.
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
-    if ([recognitionScore floatValue] < 5000) {
+    if ([recognitionScore floatValue] < -5000) {
         NSLog(@"Score is too low. Ignoring command");
     } else if ([hypothesis isEqualToString:@"NEXT"]) {
         [self goForward:nil];
@@ -170,6 +183,13 @@
         [self swipeUp:nil];
     } else if ([hypothesis isEqualToString:@"SHOW TEXT"]) {
       [self swipeDown:nil];
+    } else if ([hypothesis isEqualToString:@"REED INSTRUCTION"]) {
+        self.isVoiceEnabled = true;
+        [self switchInstruction];
+    } else if ([hypothesis isEqualToString:@"STOP"]) {
+        self.isVoiceEnabled = false;
+    } else if ([hypothesis isEqualToString:@"MENU"]) {
+        [self returnToMenu];
     }
 }
 
